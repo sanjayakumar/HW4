@@ -1,0 +1,287 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		B4BAFE9F15C07C41002FBAD2 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4BAFE9E15C07C41002FBAD2 /* UIKit.framework */; };
+		B4BAFEA115C07C41002FBAD2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4BAFEA015C07C41002FBAD2 /* Foundation.framework */; };
+		B4BAFEA315C07C41002FBAD2 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4BAFEA215C07C41002FBAD2 /* CoreGraphics.framework */; };
+		B4BAFEA915C07C41002FBAD2 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B4BAFEA715C07C41002FBAD2 /* InfoPlist.strings */; };
+		B4BAFEAB15C07C41002FBAD2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B4BAFEAA15C07C41002FBAD2 /* main.m */; };
+		B4BAFEAF15C07C41002FBAD2 /* PopphotoAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B4BAFEAE15C07C41002FBAD2 /* PopphotoAppDelegate.m */; };
+		B4BAFEB215C07C41002FBAD2 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B4BAFEB015C07C41002FBAD2 /* MainStoryboard.storyboard */; };
+		B4BAFEB515C07C41002FBAD2 /* PopphotoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B4BAFEB415C07C41002FBAD2 /* PopphotoViewController.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		B4BAFE9A15C07C41002FBAD2 /* Popphoto.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Popphoto.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B4BAFE9E15C07C41002FBAD2 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		B4BAFEA015C07C41002FBAD2 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		B4BAFEA215C07C41002FBAD2 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		B4BAFEA615C07C41002FBAD2 /* Popphoto-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Popphoto-Info.plist"; sourceTree = "<group>"; };
+		B4BAFEA815C07C41002FBAD2 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		B4BAFEAA15C07C41002FBAD2 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		B4BAFEAC15C07C41002FBAD2 /* Popphoto-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Popphoto-Prefix.pch"; sourceTree = "<group>"; };
+		B4BAFEAD15C07C41002FBAD2 /* PopphotoAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PopphotoAppDelegate.h; sourceTree = "<group>"; };
+		B4BAFEAE15C07C41002FBAD2 /* PopphotoAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PopphotoAppDelegate.m; sourceTree = "<group>"; };
+		B4BAFEB115C07C41002FBAD2 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
+		B4BAFEB315C07C41002FBAD2 /* PopphotoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PopphotoViewController.h; sourceTree = "<group>"; };
+		B4BAFEB415C07C41002FBAD2 /* PopphotoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PopphotoViewController.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		B4BAFE9715C07C41002FBAD2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B4BAFE9F15C07C41002FBAD2 /* UIKit.framework in Frameworks */,
+				B4BAFEA115C07C41002FBAD2 /* Foundation.framework in Frameworks */,
+				B4BAFEA315C07C41002FBAD2 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		B4BAFE8F15C07C41002FBAD2 = {
+			isa = PBXGroup;
+			children = (
+				B4BAFEA415C07C41002FBAD2 /* Popphoto */,
+				B4BAFE9D15C07C41002FBAD2 /* Frameworks */,
+				B4BAFE9B15C07C41002FBAD2 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		B4BAFE9B15C07C41002FBAD2 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B4BAFE9A15C07C41002FBAD2 /* Popphoto.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		B4BAFE9D15C07C41002FBAD2 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B4BAFE9E15C07C41002FBAD2 /* UIKit.framework */,
+				B4BAFEA015C07C41002FBAD2 /* Foundation.framework */,
+				B4BAFEA215C07C41002FBAD2 /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B4BAFEA415C07C41002FBAD2 /* Popphoto */ = {
+			isa = PBXGroup;
+			children = (
+				B4BAFEAD15C07C41002FBAD2 /* PopphotoAppDelegate.h */,
+				B4BAFEAE15C07C41002FBAD2 /* PopphotoAppDelegate.m */,
+				B4BAFEB015C07C41002FBAD2 /* MainStoryboard.storyboard */,
+				B4BAFEB315C07C41002FBAD2 /* PopphotoViewController.h */,
+				B4BAFEB415C07C41002FBAD2 /* PopphotoViewController.m */,
+				B4BAFEA515C07C41002FBAD2 /* Supporting Files */,
+			);
+			path = Popphoto;
+			sourceTree = "<group>";
+		};
+		B4BAFEA515C07C41002FBAD2 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				B4BAFEA615C07C41002FBAD2 /* Popphoto-Info.plist */,
+				B4BAFEA715C07C41002FBAD2 /* InfoPlist.strings */,
+				B4BAFEAA15C07C41002FBAD2 /* main.m */,
+				B4BAFEAC15C07C41002FBAD2 /* Popphoto-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		B4BAFE9915C07C41002FBAD2 /* Popphoto */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B4BAFEB815C07C41002FBAD2 /* Build configuration list for PBXNativeTarget "Popphoto" */;
+			buildPhases = (
+				B4BAFE9615C07C41002FBAD2 /* Sources */,
+				B4BAFE9715C07C41002FBAD2 /* Frameworks */,
+				B4BAFE9815C07C41002FBAD2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Popphoto;
+			productName = Popphoto;
+			productReference = B4BAFE9A15C07C41002FBAD2 /* Popphoto.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		B4BAFE9115C07C41002FBAD2 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = Popphoto;
+				LastUpgradeCheck = 0440;
+				ORGANIZATIONNAME = "Sanjaya Kumar";
+			};
+			buildConfigurationList = B4BAFE9415C07C41002FBAD2 /* Build configuration list for PBXProject "Popphoto" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = B4BAFE8F15C07C41002FBAD2;
+			productRefGroup = B4BAFE9B15C07C41002FBAD2 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				B4BAFE9915C07C41002FBAD2 /* Popphoto */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		B4BAFE9815C07C41002FBAD2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B4BAFEA915C07C41002FBAD2 /* InfoPlist.strings in Resources */,
+				B4BAFEB215C07C41002FBAD2 /* MainStoryboard.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		B4BAFE9615C07C41002FBAD2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B4BAFEAB15C07C41002FBAD2 /* main.m in Sources */,
+				B4BAFEAF15C07C41002FBAD2 /* PopphotoAppDelegate.m in Sources */,
+				B4BAFEB515C07C41002FBAD2 /* PopphotoViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		B4BAFEA715C07C41002FBAD2 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B4BAFEA815C07C41002FBAD2 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		B4BAFEB015C07C41002FBAD2 /* MainStoryboard.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B4BAFEB115C07C41002FBAD2 /* en */,
+			);
+			name = MainStoryboard.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		B4BAFEB615C07C41002FBAD2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		B4BAFEB715C07C41002FBAD2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		B4BAFEB915C07C41002FBAD2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Popphoto/Popphoto-Prefix.pch";
+				INFOPLIST_FILE = "Popphoto/Popphoto-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		B4BAFEBA15C07C41002FBAD2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Popphoto/Popphoto-Prefix.pch";
+				INFOPLIST_FILE = "Popphoto/Popphoto-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		B4BAFE9415C07C41002FBAD2 /* Build configuration list for PBXProject "Popphoto" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B4BAFEB615C07C41002FBAD2 /* Debug */,
+				B4BAFEB715C07C41002FBAD2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B4BAFEB815C07C41002FBAD2 /* Build configuration list for PBXNativeTarget "Popphoto" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B4BAFEB915C07C41002FBAD2 /* Debug */,
+				B4BAFEBA15C07C41002FBAD2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = B4BAFE9115C07C41002FBAD2 /* Project object */;
+}
