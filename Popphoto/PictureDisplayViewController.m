@@ -14,7 +14,7 @@
 @end
 
 @implementation PictureDisplayViewController
-@synthesize scrollView;
+@synthesize scrollView = _scrollView;
 @synthesize imageView = _imageView;
 @synthesize actualImage = _actualImage;
 
@@ -22,10 +22,10 @@
 {
     [super viewDidLoad];
     self.scrollView.delegate = self;
-    self.scrollView.contentSize = self.imageView.image.size;
     self.imageView.image = self.actualImage;
+    self.scrollView.contentSize = self.imageView.image.size;
     self.imageView.frame = CGRectMake(0, 0, self.imageView.image.size.width, self.imageView.image.size.height);
-   }
+}
 
 - (UIView *)viewForZoomingInScrollView:(UIScrollView *)scrollView
 {
