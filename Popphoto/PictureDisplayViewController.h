@@ -12,3 +12,4 @@
 @property UIImage *actualImage;
 
 @end
+#define FAVORITES_KEY @"popPhotoAppUserViewed.Favorites"

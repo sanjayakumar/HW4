@@ -42,7 +42,6 @@
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
  
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
@@ -124,6 +123,27 @@
 }
 */
 
+
+- (void)addToFavorites: (NSDictionary *)photoInfo
+{
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSMutableArray *favorites = [[defaults objectForKey:FAVORITES_KEY] mutableCopy];
+    
+    // If photo already in favorites, don't add a duplicate copy 
+    NSString * newPhotoId = [photoInfo objectForKey:@"id"];
+    for (NSDictionary *currentPhoto in favorites)
+    {
+        if ([newPhotoId isEqualToString:[currentPhoto objectForKey:@"id"]]){
+            return;
+        }
+    }
+    if (!favorites) favorites = [NSMutableArray array];
+    [favorites addObject:photoInfo];
+    [defaults setObject:favorites forKey:FAVORITES_KEY];
+    [defaults synchronize];
+}
+
+
 #pragma mark - Table view delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
@@ -133,6 +153,9 @@
     PictureDisplayViewController *detailViewController = [storyBoard instantiateViewControllerWithIdentifier:@"Photo Viewer"];
     
     NSDictionary * photoInfo = [self.selectedPlacePhotoList objectAtIndex:indexPath.row];
+    
+    [self addToFavorites:photoInfo];
+    
     NSURL * photoURL = [FlickrFetcher urlForPhoto:photoInfo format:FlickrPhotoFormatLarge];
     NSData *photoData = [NSData dataWithContentsOfURL:photoURL];
     

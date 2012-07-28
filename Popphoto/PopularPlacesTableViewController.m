@@ -133,7 +133,6 @@
     SelectedPlacePhotosViewController *detailViewController = [storyBoard instantiateViewControllerWithIdentifier:@"Place Photo List"];
     detailViewController.selectedPlace = [self.topPlacesList objectAtIndex:indexPath.row];
     [self.navigationController pushViewController:detailViewController animated:YES];
-    NSLog(@"Selected Place Table Row %@", indexPath);
 }
 
 @end

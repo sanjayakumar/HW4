@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B4133B4715C31FF100F46751 /* RecentlyViewedPhotosViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B4133B4615C31FF100F46751 /* RecentlyViewedPhotosViewController.m */; };
 		B443847315C2256E00F0EBFC /* PopularPlacesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B443847215C2256E00F0EBFC /* PopularPlacesTableViewController.m */; };
 		B466AD9115C2605F00799C11 /* SelectedPlacePhotosViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B466AD9015C2605F00799C11 /* SelectedPlacePhotosViewController.m */; };
 		B4BAFE9F15C07C41002FBAD2 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4BAFE9E15C07C41002FBAD2 /* UIKit.framework */; };
@@ -21,6 +22,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B4133B4515C31FF100F46751 /* RecentlyViewedPhotosViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecentlyViewedPhotosViewController.h; sourceTree = "<group>"; };
+		B4133B4615C31FF100F46751 /* RecentlyViewedPhotosViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecentlyViewedPhotosViewController.m; sourceTree = "<group>"; };
 		B443847115C2256E00F0EBFC /* PopularPlacesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopularPlacesTableViewController.h; sourceTree = "<group>"; };
 		B443847215C2256E00F0EBFC /* PopularPlacesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopularPlacesTableViewController.m; sourceTree = "<group>"; };
 		B466AD8F15C2605F00799C11 /* SelectedPlacePhotosViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectedPlacePhotosViewController.h; sourceTree = "<group>"; };
@@ -87,6 +90,8 @@
 		B4BAFEA415C07C41002FBAD2 /* Popphoto */ = {
 			isa = PBXGroup;
 			children = (
+				B4133B4515C31FF100F46751 /* RecentlyViewedPhotosViewController.h */,
+				B4133B4615C31FF100F46751 /* RecentlyViewedPhotosViewController.m */,
 				B443847115C2256E00F0EBFC /* PopularPlacesTableViewController.h */,
 				B443847215C2256E00F0EBFC /* PopularPlacesTableViewController.m */,
 				B4BAFEC315C112BA002FBAD2 /* PictureDisplayViewController.h */,
@@ -185,6 +190,7 @@
 				B4BAFEC515C112BA002FBAD2 /* PictureDisplayViewController.m in Sources */,
 				B443847315C2256E00F0EBFC /* PopularPlacesTableViewController.m in Sources */,
 				B466AD9115C2605F00799C11 /* SelectedPlacePhotosViewController.m in Sources */,
+				B4133B4715C31FF100F46751 /* RecentlyViewedPhotosViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
