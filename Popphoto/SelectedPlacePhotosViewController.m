@@ -79,7 +79,20 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
     
-    cell.textLabel.text = [[self.selectedPlacePhotoList objectAtIndex:indexPath.row] objectForKey:@"title"];
+    NSDictionary *photoInfo = [self.selectedPlacePhotoList objectAtIndex:indexPath.row];
+    NSString *photoTitle = [photoInfo objectForKey:@"title"];
+    NSString *photoDescription = [photoInfo valueForKeyPath:@"description._content"];
+    
+    if ([photoTitle isEqualToString:@""]){
+        photoTitle = photoDescription;
+        photoDescription = @"";
+    }
+    if ([photoTitle isEqualToString:@""]){
+        photoTitle = @"Unknown";
+    }
+    
+    cell.textLabel.text = photoTitle;
+    cell.detailTextLabel.text = photoDescription;
     
     return cell;
 }
@@ -160,6 +173,9 @@
     NSData *photoData = [NSData dataWithContentsOfURL:photoURL];
     
     detailViewController.actualImage = [UIImage imageWithData:photoData];
+    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    
+    detailViewController.imageTitle = cell.textLabel.text;
     [self.navigationController pushViewController:detailViewController animated:YES];
 
 }

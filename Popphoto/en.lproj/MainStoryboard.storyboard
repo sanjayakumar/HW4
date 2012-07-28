@@ -21,7 +21,7 @@
             </objects>
             <point key="canvasLocation" x="92" y="-464"/>
         </scene>
-        <!--Popular Places Table View Controller - Top Photo Places-->
+        <!--Popular Places Table View Controller - Places-->
         <scene sceneID="CJn-VD-yEn">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fIA-7I-U1N" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -63,10 +63,10 @@
                             <outlet property="delegate" destination="dgJ-2j-0eN" id="uHL-z2-CIw"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Top Photo Places" id="GbX-GF-WIg"/>
+                    <navigationItem key="navigationItem" title="Places" id="GbX-GF-WIg"/>
                 </tableViewController>
             </objects>
-            <point key="canvasLocation" x="469" y="-464"/>
+            <point key="canvasLocation" x="474" y="-484"/>
         </scene>
         <!--Selected Place Photos View Controller-->
         <scene sceneID="qe2-ve-Br0">
@@ -78,12 +78,28 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Photo List Cell" id="Yfx-pg-ZkM">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Photo List Cell" textLabel="phN-fg-Bzj" detailTextLabel="KwV-Lk-wQi" style="IBUITableViewCellStyleSubtitle" id="Yfx-pg-ZkM">
                                 <rect key="frame" x="0.0" y="22" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="phN-fg-Bzj">
+                                            <rect key="frame" x="10" y="2" width="38" height="22"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </label>
+                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="KwV-Lk-wQi">
+                                            <rect key="frame" x="10" y="24" width="47" height="18"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <color key="textColor" red="0.50196078431372548" green="0.50196078431372548" blue="0.50196078431372548" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </label>
+                                    </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
                             </tableViewCell>
@@ -96,7 +112,7 @@
                     <navigationItem key="navigationItem" id="el4-ru-ODP"/>
                 </tableViewController>
             </objects>
-            <point key="canvasLocation" x="799" y="-464"/>
+            <point key="canvasLocation" x="822" y="-484"/>
         </scene>
         <!--Navigation Controller - Recently Viewed-->
         <scene sceneID="Dio-qg-X6z">
@@ -114,7 +130,7 @@
             </objects>
             <point key="canvasLocation" x="102" y="99"/>
         </scene>
-        <!--Recently Viewed Photos View Controller - Favorite Photos-->
+        <!--Recently Viewed Photos View Controller - Favorites-->
         <scene sceneID="4Gb-GY-aTQ">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3VT-kr-Kc4" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -155,7 +171,7 @@
                             <outlet property="delegate" destination="xqf-ZO-ttp" id="jeZ-Fp-k0X"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Favorite Photos" id="jjA-Cj-xER"/>
+                    <navigationItem key="navigationItem" title="Favorites" id="jjA-Cj-xER"/>
                 </tableViewController>
             </objects>
             <point key="canvasLocation" x="474" y="93"/>
@@ -211,7 +227,7 @@
                     </connections>
                 </viewController>
             </objects>
-            <point key="canvasLocation" x="1134" y="-464"/>
+            <point key="canvasLocation" x="1183" y="-484"/>
         </scene>
     </scenes>
     <classes>
@@ -227,9 +243,6 @@
         </class>
         <class className="RecentlyViewedPhotosViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/RecentlyViewedPhotosViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="toggleEditMode:" candidateClass="UIBarButtonItem"/>
-            </relationships>
         </class>
         <class className="SelectedPlacePhotosViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/SelectedPlacePhotosViewController.h"/>

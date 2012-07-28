@@ -10,6 +10,7 @@
 
 @interface PictureDisplayViewController : UIViewController
 @property UIImage *actualImage;
+@property NSString *imageTitle;
 
 @end
 #define FAVORITES_KEY @"popPhotoAppUserViewed.Favorites"

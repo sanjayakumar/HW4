@@ -80,7 +80,13 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
     
-    cell.textLabel.text = [[self.topPlacesList objectAtIndex:indexPath.row] objectForKey:@"_content"];
+    NSString *placeName = [[self.topPlacesList objectAtIndex:indexPath.row] objectForKey:@"_content"];
+    NSArray *placeNameItems = [placeName componentsSeparatedByString:@", "];
+    cell.textLabel.text = [placeNameItems objectAtIndex:0];
+    NSRange secondToEnd;
+    secondToEnd.location = 1;
+    secondToEnd.length = [placeNameItems count] - 1;
+    cell.detailTextLabel.text = [[placeNameItems subarrayWithRange:secondToEnd] componentsJoinedByString:@", "];
     
     return cell;
 }

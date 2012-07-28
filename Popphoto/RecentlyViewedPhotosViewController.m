@@ -74,13 +74,29 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"Photo List Cell";
+    static NSString *CellIdentifier = @"Favorite Photos List Cell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
     
-    cell.textLabel.text = [[self.favoritesPhotoList objectAtIndex:indexPath.row] objectForKey:@"title"];
+    NSDictionary *photoInfo = [self.favoritesPhotoList objectAtIndex:indexPath.row];
+    NSString *photoTitle = [photoInfo objectForKey:@"title"];
+    NSString *photoDescription = [photoInfo valueForKeyPath:@"description._content"];
+    
+    if ([photoTitle isEqualToString:@""]){
+        photoTitle = photoDescription;
+        photoDescription = @"";
+    }
+    if ([photoTitle isEqualToString:@""]){
+        photoTitle = @"Unknown";
+    }
+    
+    cell.textLabel.text = photoTitle;
+    cell.detailTextLabel.text = photoDescription;
+    
+    return cell;
+
     
     return cell;
 }
@@ -133,8 +149,11 @@ commitEditingStyle:(UITableViewCellEditingStyle)editingStyle
     
     NSURL * photoURL = [FlickrFetcher urlForPhoto:photoInfo format:FlickrPhotoFormatLarge];
     NSData *photoData = [NSData dataWithContentsOfURL:photoURL];
-    
     detailViewController.actualImage = [UIImage imageWithData:photoData];
+    
+    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    detailViewController.imageTitle = cell.textLabel.text;
+    
     [self.navigationController pushViewController:detailViewController animated:YES];
     
 }
