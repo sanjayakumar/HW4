@@ -146,7 +146,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Favorite Photos List Cell" textLabel="mgN-FD-0oS" detailTextLabel="5hg-tW-BWS" style="IBUITableViewCellStyleSubtitle" id="Hss-O6-3Wd">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Photo List Cell" textLabel="mgN-FD-0oS" detailTextLabel="5hg-tW-BWS" style="IBUITableViewCellStyleSubtitle" id="Hss-O6-3Wd">
                                 <rect key="frame" x="0.0" y="22" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -171,7 +171,7 @@
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
                                 <connections>
-                                    <segue destination="8VK-Ef-lUz" kind="push" id="Rdc-pA-lvl"/>
+                                    <segue destination="8VK-Ef-lUz" kind="push" id="Od2-5h-xfX"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -253,7 +253,7 @@
         <class className="PopularPlacesTableViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/PopularPlacesTableViewController.h"/>
         </class>
-        <class className="RecentlyViewedPhotosViewController" superclassName="UITableViewController">
+        <class className="RecentlyViewedPhotosViewController" superclassName="PhotosListViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/RecentlyViewedPhotosViewController.h"/>
         </class>
     </classes>
@@ -263,6 +263,6 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="Rdc-pA-lvl"/>
+        <segue reference="Od2-5h-xfX"/>
     </inferredMetricsTieBreakers>
 </document>

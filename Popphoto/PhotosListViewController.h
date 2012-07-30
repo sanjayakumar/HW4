@@ -9,6 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface PhotosListViewController : UITableViewController
-@property (nonatomic, strong) NSArray * photoList;
+@property (nonatomic, strong) NSMutableArray * photoList;
 
 @end
