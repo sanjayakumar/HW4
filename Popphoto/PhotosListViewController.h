@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SelectedPlacePhotosViewController : UITableViewController
-@property (nonatomic, strong) NSDictionary * selectedPlace;
+@interface PhotosListViewController : UITableViewController
+@property (nonatomic, strong) NSArray * photoList;
+
 @end

@@ -101,7 +101,6 @@
     return cell;
 }
 
-
  - (void)tableView:(UITableView *)tableView
 commitEditingStyle:(UITableViewCellEditingStyle)editingStyle
  forRowAtIndexPath:(NSIndexPath *)indexPath
@@ -120,42 +119,18 @@ commitEditingStyle:(UITableViewCellEditingStyle)editingStyle
     }
 }
 
-/*
- // Override to support rearranging the table view.
- - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
- {
- }
- */
-
-/*
- // Override to support conditional rearranging of the table view.
- - (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
- {
- // Return NO if you do not want the item to be re-orderable.
- return YES;
- }
- */
-
-
-#pragma mark - Table view delegate
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+- (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    // Need to revisit this when implementing iPad version since the storyboard will be different
-    UIStoryboard * storyBoard = [UIStoryboard storyboardWithName:@"MainStoryBoard" bundle:nil];
-    PictureDisplayViewController *detailViewController = [storyBoard instantiateViewControllerWithIdentifier:@"Photo Viewer"];
-    
+    NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
     NSDictionary * photoInfo = [self.favoritesPhotoList objectAtIndex:indexPath.row];
     
     NSURL * photoURL = [FlickrFetcher urlForPhoto:photoInfo format:FlickrPhotoFormatLarge];
     NSData *photoData = [NSData dataWithContentsOfURL:photoURL];
-    detailViewController.actualImage = [UIImage imageWithData:photoData];
     
-    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
-    detailViewController.imageTitle = cell.textLabel.text;
+    [segue.destinationViewController setActualImage: [UIImage imageWithData:photoData]];
+    UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
     
-    [self.navigationController pushViewController:detailViewController animated:YES];
-    
+    [segue.destinationViewController setImageTitle : cell.textLabel.text];
 }
 
 @end
