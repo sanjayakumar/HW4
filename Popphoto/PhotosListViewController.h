@@ -1,5 +1,5 @@
 //
-//  SelectedPlacePhotosViewController.h
+//  PhotosListViewController.h
 //  Popphoto
 //
 //  Created by Sanjaya Kumar on 7/26/12.

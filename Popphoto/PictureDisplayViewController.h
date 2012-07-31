@@ -7,10 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "RotatableViewController.h"
 
-@interface PictureDisplayViewController : UIViewController
-@property UIImage *actualImage;
-@property NSString *imageTitle;
+@interface PictureDisplayViewController : RotatableViewController;
+@property (nonatomic, strong)UIImage *actualImage;
+@property (nonatomic, strong)NSString *imageTitle;
 
 @end
 #define FAVORITES_KEY @"popPhotoAppUserViewed.Favorites"

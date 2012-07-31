@@ -29,7 +29,7 @@
         NSUInteger countryIndex;
         
         for (topPlace in [FlickrFetcher topPlaces]){
-            NSString *placeCountry = [[[topPlace objectForKey:@"_content"] componentsSeparatedByString:@", "] lastObject];
+            NSString *placeCountry = [[[topPlace objectForKey:FLICKR_PLACE_NAME] componentsSeparatedByString:@", "] lastObject];
             countryIndex = [countryNames indexOfObject:placeCountry];
             if (countryIndex == NSNotFound){
                 // If this is the first time we see this country, add it to the list of countries
@@ -73,7 +73,7 @@
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
     NSDictionary *topPlace = [[self.countryList objectAtIndex:section] objectAtIndex:0];
-    return [[[topPlace objectForKey:@"_content"] componentsSeparatedByString:@", "] lastObject];
+    return [[[topPlace objectForKey:FLICKR_PLACE_NAME] componentsSeparatedByString:@", "] lastObject];
 }
 
 
@@ -85,7 +85,7 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
     NSDictionary *topPlace = [[self.countryList objectAtIndex:indexPath.section]objectAtIndex:indexPath.row];
-    NSString *placeName = [topPlace objectForKey:@"_content"];
+    NSString *placeName = [topPlace objectForKey:FLICKR_PLACE_NAME];
     NSArray *placeNameItems = [placeName componentsSeparatedByString:@", "];
     cell.textLabel.text = [placeNameItems objectAtIndex:0];
     NSRange secondToEnd;
@@ -103,5 +103,7 @@
     NSArray *PhotoList = [FlickrFetcher photosInPlace:topPlace maxResults:MAX_PHOTOS_FROM_PLACE];
     [segue.destinationViewController setPhotoList:[PhotoList mutableCopy]];
 }
+
+
 
 @end

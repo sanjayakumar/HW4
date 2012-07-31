@@ -1,5 +1,5 @@
 //
-//  SelectedPlacePhotosViewController.m
+//  PhotosListViewController.m
 //  Popphoto
 //
 //  Created by Sanjaya Kumar on 7/26/12.
@@ -46,8 +46,8 @@
     }
     
     NSDictionary *photoInfo = [self.photoList objectAtIndex:indexPath.row];
-    NSString *photoTitle = [photoInfo objectForKey:@"title"];
-    NSString *photoDescription = [photoInfo valueForKeyPath:@"description._content"];
+    NSString *photoTitle = [photoInfo objectForKey:FLICKR_PHOTO_TITLE];
+    NSString *photoDescription = [photoInfo valueForKeyPath:FLICKR_PHOTO_DESCRIPTION];
     
     if ([photoTitle isEqualToString:@""]){
         photoTitle = photoDescription;
@@ -69,10 +69,10 @@
     NSMutableArray *favorites = [[defaults objectForKey:FAVORITES_KEY] mutableCopy];
     
     // If photo already in favorites, don't add a duplicate copy 
-    NSString * newPhotoId = [photoInfo objectForKey:@"id"];
+    NSString * newPhotoId = [photoInfo objectForKey:FLICKR_PHOTO_ID];
     for (NSDictionary *currentPhoto in favorites)
     {
-        if ([newPhotoId isEqualToString:[currentPhoto objectForKey:@"id"]]){
+        if ([newPhotoId isEqualToString:[currentPhoto objectForKey:FLICKR_PHOTO_ID]]){
             return;
         }
     }
@@ -82,6 +82,7 @@
     [defaults synchronize];
 }
 
+// Note: prepareForSegue not called if the device is an iPad
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
@@ -96,6 +97,24 @@
     UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
     
     [segue.destinationViewController setImageTitle : cell.textLabel.text];
+}
+
+// This function is called when the device is an iPad and the user selects a picture to display; not called for iPhone
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSDictionary * photoInfo = [self.photoList objectAtIndex:indexPath.row];
+    
+    [self addToFavorites:photoInfo];
+    
+    NSURL * photoURL = [FlickrFetcher urlForPhoto:photoInfo format:FlickrPhotoFormatLarge];
+    NSData *photoData = [NSData dataWithContentsOfURL:photoURL];
+    
+    id detailViewController = [[self.splitViewController viewControllers] lastObject];
+   
+    UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
+    [detailViewController setImageTitle : cell.textLabel.text];
+
+    [detailViewController setActualImage: [UIImage imageWithData:photoData]];
 }
 
 @end
