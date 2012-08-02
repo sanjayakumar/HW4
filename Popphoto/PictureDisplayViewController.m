@@ -29,24 +29,56 @@
     [super viewDidLoad];
 }
 
+- (void) debugLogs: (NSString *) msg
+{
+    NSLog(@"%@", msg);
+    NSLog(@"Content Size %f %f", self.scrollView.contentSize.width, self.scrollView.contentSize.height);
+    NSLog(@"ContentSize Aspect Ratio %f", self.scrollView.contentSize.width/self.scrollView.contentSize.height);
+    NSLog(@"Screen Size Bounds %f %f", self.scrollView.bounds.size.width, self.scrollView.bounds.size.height);
+    NSLog(@"Photo size %f %f", self.imageView.image.size.width, self.imageView.image.size.height);
+    NSLog(@"Screen Aspect Ratio %f", self.scrollView.bounds.size.width/self.scrollView.bounds.size.height);
+    NSLog(@"Photo Aspect Ratio %f", self.imageView.image.size.width/self.imageView.image.size.height);
+    NSLog(@"ZoomScale %f", self.scrollView.zoomScale);
+   
+
+}
+
 - (void) displayImageWithZoomAndTitle
 {
+    CGRect scrollRect;
     self.scrollView.delegate = self;
     self.imageView.image = self.actualImage;
     self.scrollView.contentSize = self.imageView.image.size;
+    self.scrollView.zoomScale = 1.0;
+    
+    //[self debugLogs:@"1"];
+    float viewBoundsAspectRatio = self.scrollView.bounds.size.width/self.scrollView.bounds.size.height;
+    float photoAspectRatio = self.imageView.image.size.width/self.imageView.image.size.height;
+    
+    if (photoAspectRatio < viewBoundsAspectRatio){
+        scrollRect = CGRectMake(0, 0, self.imageView.image.size.width, self.imageView.image.size.width/viewBoundsAspectRatio);
+    } else {
+        scrollRect = CGRectMake(0, 0, self.imageView.image.size.height*viewBoundsAspectRatio, self.imageView.image.size.height);
+    }
+    
     self.imageView.frame = CGRectMake(0, 0, self.imageView.image.size.width, self.imageView.image.size.height);
     if (self.toolbar) {
         self.toolbarTitle.text = self.imageTitle;
     } else {
         self.navigationItem.title = self.imageTitle;
     }
-    [self.scrollView zoomToRect:self.imageView.frame animated:YES];
+    [self.scrollView zoomToRect:scrollRect animated:YES];
+    
+    //[self debugLogs:@"2"];
+    
 }
 
 - (void) setActualImage:(UIImage *)actualImage
 {
     _actualImage = actualImage;
-    [self displayImageWithZoomAndTitle];
+    if (self.splitViewController){
+        [self displayImageWithZoomAndTitle];
+    }
 }
 
 - (void) viewWillAppear:(BOOL)animated
