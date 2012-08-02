@@ -21,6 +21,8 @@
 		B4BAFEB215C07C41002FBAD2 /* iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B4BAFEB015C07C41002FBAD2 /* iPhone.storyboard */; };
 		B4BAFEBE15C07CDC002FBAD2 /* FlickrFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = B4BAFEBD15C07CDC002FBAD2 /* FlickrFetcher.m */; };
 		B4BAFEC515C112BA002FBAD2 /* PictureDisplayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B4BAFEC415C112BA002FBAD2 /* PictureDisplayViewController.m */; };
+		B4CEFB7215CAE81D0058313B /* 86-camera.png in Resources */ = {isa = PBXBuildFile; fileRef = B4CEFB7115CAE81D0058313B /* 86-camera.png */; };
+		B4CEFB7515CAE8890058313B /* 28-star.png in Resources */ = {isa = PBXBuildFile; fileRef = B4CEFB7415CAE8890058313B /* 28-star.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +52,8 @@
 		B4BAFEBD15C07CDC002FBAD2 /* FlickrFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlickrFetcher.m; sourceTree = "<group>"; };
 		B4BAFEC315C112BA002FBAD2 /* PictureDisplayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PictureDisplayViewController.h; sourceTree = "<group>"; };
 		B4BAFEC415C112BA002FBAD2 /* PictureDisplayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PictureDisplayViewController.m; sourceTree = "<group>"; };
+		B4CEFB7115CAE81D0058313B /* 86-camera.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "86-camera.png"; sourceTree = "<group>"; };
+		B4CEFB7415CAE8890058313B /* 28-star.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "28-star.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,6 +126,8 @@
 		B4BAFEA515C07C41002FBAD2 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				B4CEFB7415CAE8890058313B /* 28-star.png */,
+				B4CEFB7115CAE81D0058313B /* 86-camera.png */,
 				B4BAFEA615C07C41002FBAD2 /* Popphoto-Info.plist */,
 				B4BAFEA715C07C41002FBAD2 /* InfoPlist.strings */,
 				B4BAFEAA15C07C41002FBAD2 /* main.m */,
@@ -185,6 +191,8 @@
 				B4BAFEA915C07C41002FBAD2 /* InfoPlist.strings in Resources */,
 				B4BAFEB215C07C41002FBAD2 /* iPhone.storyboard in Resources */,
 				B408A36E15C73B28001E76D0 /* iPad.storyboard in Resources */,
+				B4CEFB7215CAE81D0058313B /* 86-camera.png in Resources */,
+				B4CEFB7515CAE8890058313B /* 28-star.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

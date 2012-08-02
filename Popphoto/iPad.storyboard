@@ -24,7 +24,7 @@
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gzb-Nw-jm0" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController definesPresentationContext="YES" id="nDM-DT-m2A" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Popular Places" id="f6q-yv-zAT"/>
+                    <tabBarItem key="tabBarItem" title="Popular Places" image="86-camera.png" id="f6q-yv-zAT"/>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="blackTranslucent"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="cc9-es-kcX">
                         <autoresizingMask key="autoresizingMask"/>
@@ -139,7 +139,7 @@
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fa1-g2-c8o" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController definesPresentationContext="YES" id="gvc-73-Vqo" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Recently Viewed" id="1UU-dF-fRv"/>
+                    <tabBarItem key="tabBarItem" title="Recently Viewed" image="28-star.png" id="1UU-dF-fRv"/>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="blackTranslucent"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="oi0-42-e01">
                         <autoresizingMask key="autoresizingMask"/>
@@ -265,6 +265,33 @@
             <point key="canvasLocation" x="2911" y="1024"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="28-star.png" width="26" height="26"/>
+        <image name="86-camera.png" width="24" height="18"/>
+    </resources>
+    <classes>
+        <class className="PhotosListViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PhotosListViewController.h"/>
+        </class>
+        <class className="PictureDisplayViewController" superclassName="RotatableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PictureDisplayViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="imageView" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="scrollView" candidateClass="UIScrollView"/>
+                <relationship kind="outlet" name="toolbar" candidateClass="UIToolbar"/>
+                <relationship kind="outlet" name="toolbarTitle" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="PopularPlacesTableViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PopularPlacesTableViewController.h"/>
+        </class>
+        <class className="RecentlyViewedPhotosViewController" superclassName="PhotosListViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/RecentlyViewedPhotosViewController.h"/>
+        </class>
+        <class className="RotatableViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/RotatableViewController.h"/>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar" statusBarStyle="blackTranslucent"/>
         <simulatedOrientationMetrics key="orientation"/>
