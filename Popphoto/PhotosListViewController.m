@@ -9,8 +9,10 @@
 #import "PhotosListViewController.h"
 #import "FlickrFetcher.h"
 #import "PictureDisplayViewController.h"
+#import "MapViewController.h"
+#import "FlickrPhotoAnnotation.h"
 
-@interface PhotosListViewController ()
+@interface PhotosListViewController () <MapViewControllerDelegate>
 @end
 
 @implementation PhotosListViewController
@@ -82,21 +84,38 @@
     [defaults synchronize];
 }
 
-// Note: prepareForSegue not called if the device is an iPad
+
+- (NSArray *)mapAnnotations
+{
+    NSMutableArray *annotations = [NSMutableArray arrayWithCapacity:[self.photoList count]];
+    for (NSDictionary *photo in self.photoList) {
+        [annotations addObject:[FlickrPhotoAnnotation annotationForPhoto:photo]];
+    }
+    return annotations;
+}
+
+
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-    NSDictionary * photoInfo = [self.photoList objectAtIndex:indexPath.row];
+    if ([segue.destinationViewController isKindOfClass:[MapViewController class]]){
+        MapViewController *mapVC = segue.destinationViewController;
+        mapVC.annotations = [self mapAnnotations];
+        mapVC.delegate = self;
+        NSLog(@"Map button pressed");
+    } else {
+        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+        NSDictionary * photoInfo = [self.photoList objectAtIndex:indexPath.row];
     
-    [self addToFavorites:photoInfo];
+        [self addToFavorites:photoInfo];
     
-    NSURL * photoURL = [FlickrFetcher urlForPhoto:photoInfo format:FlickrPhotoFormatLarge];
-    NSData *photoData = [NSData dataWithContentsOfURL:photoURL];
+        NSURL * photoURL = [FlickrFetcher urlForPhoto:photoInfo format:FlickrPhotoFormatLarge];
+        NSData *photoData = [NSData dataWithContentsOfURL:photoURL];
     
-    [segue.destinationViewController setActualImage: [UIImage imageWithData:photoData]];
-    UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
+        [segue.destinationViewController setActualImage: [UIImage imageWithData:photoData]];
+        UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
     
-    [segue.destinationViewController setImageTitle : cell.textLabel.text];
+        [segue.destinationViewController setImageTitle : cell.textLabel.text];
+    }
 }
 
 // This function is called when the device is an iPad and the user selects a picture to display; not called for iPhone
@@ -114,6 +133,27 @@
     UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
     [detailViewController setImageTitle : cell.textLabel.text];
 
+    [detailViewController setActualImage: [UIImage imageWithData:photoData]];
+}
+
+#pragma mark - MapViewControllerDelegate
+
+- (UIImage *)mapViewController:(MapViewController *)sender imageForAnnotation:(id <MKAnnotation>)annotation
+{
+    FlickrPhotoAnnotation *fpa = (FlickrPhotoAnnotation *)annotation;
+    NSURL *url = [FlickrFetcher urlForPhoto:fpa.photo format:FlickrPhotoFormatSquare];
+    NSData *data = [NSData dataWithContentsOfURL:url];
+    return data ? [UIImage imageWithData:data] : nil;
+}
+
+- (void) displayPhoto:(id<MKAnnotation>)annotation
+{
+    FlickrPhotoAnnotation * flikrAnnotation = annotation;
+    NSDictionary * photoInfo = flikrAnnotation.photo;
+    [self addToFavorites:photoInfo];
+    NSURL * photoURL = [FlickrFetcher urlForPhoto:photoInfo format:FlickrPhotoFormatLarge];
+    NSData *photoData = [NSData dataWithContentsOfURL:photoURL];
+    id detailViewController = [[self.splitViewController viewControllers] lastObject];
     [detailViewController setActualImage: [UIImage imageWithData:photoData]];
 }
 

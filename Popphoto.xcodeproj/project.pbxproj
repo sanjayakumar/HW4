@@ -23,6 +23,10 @@
 		B4BAFEC515C112BA002FBAD2 /* PictureDisplayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B4BAFEC415C112BA002FBAD2 /* PictureDisplayViewController.m */; };
 		B4CEFB7215CAE81D0058313B /* 86-camera.png in Resources */ = {isa = PBXBuildFile; fileRef = B4CEFB7115CAE81D0058313B /* 86-camera.png */; };
 		B4CEFB7515CAE8890058313B /* 28-star.png in Resources */ = {isa = PBXBuildFile; fileRef = B4CEFB7415CAE8890058313B /* 28-star.png */; };
+		B4FC051A15DB26A90059F639 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B4FC051915DB26A90059F639 /* MapViewController.m */; };
+		B4FC051D15DB30990059F639 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4FC051C15DB30990059F639 /* MapKit.framework */; };
+		B4FC051F15DB30AA0059F639 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4FC051E15DB30AA0059F639 /* CoreLocation.framework */; };
+		B4FC052615DB70FF0059F639 /* FlickrPhotoAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = B4FC052515DB70FF0059F639 /* FlickrPhotoAnnotation.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,6 +58,12 @@
 		B4BAFEC415C112BA002FBAD2 /* PictureDisplayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PictureDisplayViewController.m; sourceTree = "<group>"; };
 		B4CEFB7115CAE81D0058313B /* 86-camera.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "86-camera.png"; sourceTree = "<group>"; };
 		B4CEFB7415CAE8890058313B /* 28-star.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "28-star.png"; sourceTree = "<group>"; };
+		B4FC051815DB26A90059F639 /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
+		B4FC051915DB26A90059F639 /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
+		B4FC051C15DB30990059F639 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		B4FC051E15DB30AA0059F639 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		B4FC052415DB70FF0059F639 /* FlickrPhotoAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlickrPhotoAnnotation.h; sourceTree = "<group>"; };
+		B4FC052515DB70FF0059F639 /* FlickrPhotoAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlickrPhotoAnnotation.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +71,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B4FC051F15DB30AA0059F639 /* CoreLocation.framework in Frameworks */,
+				B4FC051D15DB30990059F639 /* MapKit.framework in Frameworks */,
 				B4BAFE9F15C07C41002FBAD2 /* UIKit.framework in Frameworks */,
 				B4BAFEA115C07C41002FBAD2 /* Foundation.framework in Frameworks */,
 				B4BAFEA315C07C41002FBAD2 /* CoreGraphics.framework in Frameworks */,
@@ -73,6 +85,8 @@
 		B4BAFE8F15C07C41002FBAD2 = {
 			isa = PBXGroup;
 			children = (
+				B4FC051E15DB30AA0059F639 /* CoreLocation.framework */,
+				B4FC051C15DB30990059F639 /* MapKit.framework */,
 				B4BAFEA415C07C41002FBAD2 /* Popphoto */,
 				B4BAFE9D15C07C41002FBAD2 /* Frameworks */,
 				B4BAFE9B15C07C41002FBAD2 /* Products */,
@@ -118,6 +132,10 @@
 				B4BAFEB015C07C41002FBAD2 /* iPhone.storyboard */,
 				B466AD8F15C2605F00799C11 /* PhotosListViewController.h */,
 				B466AD9015C2605F00799C11 /* PhotosListViewController.m */,
+				B4FC051815DB26A90059F639 /* MapViewController.h */,
+				B4FC051915DB26A90059F639 /* MapViewController.m */,
+				B4FC052415DB70FF0059F639 /* FlickrPhotoAnnotation.h */,
+				B4FC052515DB70FF0059F639 /* FlickrPhotoAnnotation.m */,
 				B4BAFEA515C07C41002FBAD2 /* Supporting Files */,
 			);
 			path = Popphoto;
@@ -211,6 +229,8 @@
 				B466AD9115C2605F00799C11 /* PhotosListViewController.m in Sources */,
 				B4133B4715C31FF100F46751 /* RecentlyViewedPhotosViewController.m in Sources */,
 				B49C2DDA15C7876B004F9D7C /* RotatableViewController.m in Sources */,
+				B4FC051A15DB26A90059F639 /* MapViewController.m in Sources */,
+				B4FC052615DB70FF0059F639 /* FlickrPhotoAnnotation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

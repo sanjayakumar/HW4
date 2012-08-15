@@ -128,11 +128,42 @@
                             <outlet property="delegate" destination="AIo-SJ-hL6" id="yjL-Tf-God"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Photo List" id="l1u-io-ODe"/>
+                    <navigationItem key="navigationItem" title="Photo List" id="l1u-io-ODe">
+                        <barButtonItem key="rightBarButtonItem" title="Map" id="inw-f1-cVs">
+                            <connections>
+                                <action selector="mapButtonPressed:" destination="AIo-SJ-hL6" id="XYz-21-F0g"/>
+                                <segue destination="YyC-rR-HTI" kind="push" id="R9k-Oq-Yxx"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="blackTranslucent"/>
                 </tableViewController>
             </objects>
             <point key="canvasLocation" x="2944" y="-560"/>
+        </scene>
+        <!--Map View Controller-->
+        <scene sceneID="8tP-ya-1AB">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5pL-rb-tu0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController id="YyC-rR-HTI" customClass="MapViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="KHi-j3-BDF">
+                        <rect key="frame" x="0.0" y="64" width="320" height="739"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" id="NsW-fu-EOp">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="739"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="e6X-cb-vfb"/>
+                    <connections>
+                        <outlet property="mapView" destination="NsW-fu-EOp" id="dV4-mo-OLH"/>
+                    </connections>
+                </viewController>
+            </objects>
+            <point key="canvasLocation" x="3443" y="-560"/>
         </scene>
         <!--Navigation Controller - Recently Viewed-->
         <scene sceneID="Tcy-Wl-sfv">
@@ -270,6 +301,12 @@
         <image name="86-camera.png" width="24" height="18"/>
     </resources>
     <classes>
+        <class className="MapViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MapViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="mapView" candidateClass="MKMapView"/>
+            </relationships>
+        </class>
         <class className="PhotosListViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/PhotosListViewController.h"/>
         </class>
