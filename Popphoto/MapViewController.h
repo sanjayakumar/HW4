@@ -11,7 +11,7 @@
 
 @protocol MapViewControllerDelegate <NSObject>
 - (UIImage *)mapViewController:(MapViewController *)sender imageForAnnotation:(id <MKAnnotation>)annotation;
-- (void) displayPhoto:(id<MKAnnotation>)annotation;
+- (void) annotationCallOutAction:(id<MKAnnotation>)annotation;
 @end
 
 @interface MapViewController : UIViewController

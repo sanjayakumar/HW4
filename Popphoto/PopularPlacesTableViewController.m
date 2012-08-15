@@ -9,26 +9,61 @@
 #import "PopularPlacesTableViewController.h"
 #import "FlickrFetcher.h"
 #import "PhotosListViewController.h"
+#import "MapViewController.h"
+#import "FlickrPlaceAnnotation.h"
 
 
-@interface PopularPlacesTableViewController ()
+@interface PopularPlacesTableViewController () <MapViewControllerDelegate>
 @property (nonatomic, strong) NSMutableArray *countryList;
 @end
 
 #define MAX_PHOTOS_FROM_PLACE 50 // set by Assignment 4 instructions
 
 @implementation PopularPlacesTableViewController
+- (IBAction)refresh:(UIBarButtonItem *)sender {
+{
+        // might want to use introspection to be sure sender is UIBarButtonItem
+        // (if not, it can skip the spinner)
+        // that way this method can be a little more generic
+        UIActivityIndicatorView *spinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+        [spinner startAnimating];
+        self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:spinner];
+        
+        dispatch_queue_t downloadQueue = dispatch_queue_create("flickr downloader", NULL);
+        dispatch_async(downloadQueue, ^{
+            NSArray *topPlaces = [FlickrFetcher topPlaces];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                self.navigationItem.leftBarButtonItem = sender;
+                self.topPlaces = topPlaces;
+            });
+        });
+        dispatch_release(downloadQueue);
+    }
+
+}
+
+- (void) setTopPlaces:(NSArray *)topPlaces
+{
+    if (_topPlaces != topPlaces){
+        _topPlaces = topPlaces;
+        // update country list since topPlace list has changed
+        self.countryList = nil;
+        [self countryList];
+        // Model changed, so update our View (the table)
+        if (self.tableView.window) [self.tableView reloadData];
+    }
+}
 
 - (NSMutableArray *)countryList
 {
-    // We get the topPlaces from Flikr and organize them by country (Extra Credit)
+    // We organize Top Places by country (Extra Credit)
     if (!_countryList){
         _countryList = [[NSMutableArray alloc]init];
         NSDictionary * topPlace;
         NSMutableOrderedSet * countryNames = [[NSMutableOrderedSet alloc]init]; // used only temporarily in this function
         NSUInteger countryIndex;
         
-        for (topPlace in [FlickrFetcher topPlaces]){
+        for (topPlace in self.topPlaces){
             NSString *placeCountry = [[[topPlace objectForKey:FLICKR_PLACE_NAME] componentsSeparatedByString:@", "] lastObject];
             countryIndex = [countryNames indexOfObject:placeCountry];
             if (countryIndex == NSNotFound){
@@ -96,12 +131,56 @@
     return cell;
 }
 
+- (NSArray *)mapAnnotations
+{
+    NSMutableArray *annotations = [[NSMutableArray alloc]init];
+    NSDictionary * topPlace;
+    
+    for (topPlace in [FlickrFetcher topPlaces]){
+        [annotations addObject:[FlickrPlaceAnnotation annotationForPlace:topPlace]];
+    }
+    return annotations;
+}
+
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-    NSDictionary *topPlace = [[self.countryList objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
+    // segue to map
+    if ([segue.destinationViewController isKindOfClass:[MapViewController class]]){
+        MapViewController *mapVC = segue.destinationViewController;
+        mapVC.annotations = [self mapAnnotations];
+        mapVC.delegate = self;
+        NSLog(@"Map button pressed");
+        return;
+    }
+    
+    NSDictionary * topPlace;
+    
+    // segue to place specific table view
+    if ([sender isKindOfClass: [FlickrPlaceAnnotation class]])
+    {
+        // segueing because user touched call out on place map
+        FlickrPlaceAnnotation * placeAnnotation = sender;
+        topPlace = placeAnnotation.place;
+    } else {
+        // segueing because user selected row in table
+        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+        topPlace = [[self.countryList objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
+    }
+    
     NSArray *PhotoList = [FlickrFetcher photosInPlace:topPlace maxResults:MAX_PHOTOS_FROM_PLACE];
     [segue.destinationViewController setPhotoList:[PhotoList mutableCopy]];
+}
+
+#pragma mark - MapViewControllerDelegate
+
+- (UIImage *)mapViewController:(MapViewController *)sender imageForAnnotation:(id <MKAnnotation>)annotation
+{
+    return nil; // no thumbnail image for Top Photo Place
+}
+
+- (void) annotationCallOutAction:(id<MKAnnotation>)annotation
+{
+    [self performSegueWithIdentifier:@"Place Photo List Segue" sender:annotation];
 }
 
 

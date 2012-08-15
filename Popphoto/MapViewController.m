@@ -34,6 +34,7 @@
         minLongitude = coordinate.longitude < minLongitude ? coordinate.longitude : minLongitude;
         maxLongitude = coordinate.longitude > maxLongitude ? coordinate.longitude : maxLongitude;
     }
+    // http://stackoverflow.com/questions/3434020/mkmapview-zoom-to-bounds-with-multiple-markers
     // pad our map by 10% around the farthest annotations
 #define MAP_PADDING 1.1
     
@@ -48,8 +49,7 @@
     
     region.span.latitudeDelta = (maxLatitude - minLatitude) * MAP_PADDING;
     
-    region.span.latitudeDelta = (region.span.latitudeDelta < MINIMUM_VISIBLE_LATITUDE)
-    ? MINIMUM_VISIBLE_LATITUDE
+    region.span.latitudeDelta = (region.span.latitudeDelta < MINIMUM_VISIBLE_LATITUDE) ? MINIMUM_VISIBLE_LATITUDE
     : region.span.latitudeDelta;
     
     region.span.longitudeDelta = (maxLongitude - minLongitude) * MAP_PADDING;
@@ -105,7 +105,7 @@
 - (void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control
 {
     NSLog(@"callout accessory tapped for annotation %@", [view.annotation title]);
-    [self.delegate displayPhoto:view.annotation];
+    [self.delegate annotationCallOutAction:view.annotation];
 }
 
 #pragma mark - View Controller Lifecycle

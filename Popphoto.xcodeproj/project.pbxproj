@@ -27,6 +27,7 @@
 		B4FC051D15DB30990059F639 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4FC051C15DB30990059F639 /* MapKit.framework */; };
 		B4FC051F15DB30AA0059F639 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4FC051E15DB30AA0059F639 /* CoreLocation.framework */; };
 		B4FC052615DB70FF0059F639 /* FlickrPhotoAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = B4FC052515DB70FF0059F639 /* FlickrPhotoAnnotation.m */; };
+		B4FC052915DC04450059F639 /* FlickrPlaceAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = B4FC052815DC04450059F639 /* FlickrPlaceAnnotation.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -64,6 +65,8 @@
 		B4FC051E15DB30AA0059F639 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		B4FC052415DB70FF0059F639 /* FlickrPhotoAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlickrPhotoAnnotation.h; sourceTree = "<group>"; };
 		B4FC052515DB70FF0059F639 /* FlickrPhotoAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlickrPhotoAnnotation.m; sourceTree = "<group>"; };
+		B4FC052715DC04450059F639 /* FlickrPlaceAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlickrPlaceAnnotation.h; sourceTree = "<group>"; };
+		B4FC052815DC04450059F639 /* FlickrPlaceAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlickrPlaceAnnotation.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -136,6 +139,8 @@
 				B4FC051915DB26A90059F639 /* MapViewController.m */,
 				B4FC052415DB70FF0059F639 /* FlickrPhotoAnnotation.h */,
 				B4FC052515DB70FF0059F639 /* FlickrPhotoAnnotation.m */,
+				B4FC052715DC04450059F639 /* FlickrPlaceAnnotation.h */,
+				B4FC052815DC04450059F639 /* FlickrPlaceAnnotation.m */,
 				B4BAFEA515C07C41002FBAD2 /* Supporting Files */,
 			);
 			path = Popphoto;
@@ -231,6 +236,7 @@
 				B49C2DDA15C7876B004F9D7C /* RotatableViewController.m in Sources */,
 				B4FC051A15DB26A90059F639 /* MapViewController.m in Sources */,
 				B4FC052615DB70FF0059F639 /* FlickrPhotoAnnotation.m in Sources */,
+				B4FC052915DC04450059F639 /* FlickrPlaceAnnotation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

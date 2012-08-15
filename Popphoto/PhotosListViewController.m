@@ -146,7 +146,7 @@
     return data ? [UIImage imageWithData:data] : nil;
 }
 
-- (void) displayPhoto:(id<MKAnnotation>)annotation
+- (void) annotationCallOutAction:(id<MKAnnotation>)annotation
 {
     FlickrPhotoAnnotation * flikrAnnotation = annotation;
     NSDictionary * photoInfo = flikrAnnotation.photo;

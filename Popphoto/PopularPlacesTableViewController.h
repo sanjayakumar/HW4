@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface PopularPlacesTableViewController : UITableViewController
-
+@property (nonatomic, strong)NSArray *topPlaces; // from Flickr
 @end

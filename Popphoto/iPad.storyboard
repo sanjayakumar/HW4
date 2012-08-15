@@ -71,7 +71,7 @@
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
                                 <connections>
-                                    <segue destination="AIo-SJ-hL6" kind="push" id="NJW-Sq-xtg"/>
+                                    <segue destination="AIo-SJ-hL6" kind="push" identifier="Place Photo List Segue" id="NJW-Sq-xtg"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -81,7 +81,18 @@
                             <outlet property="delegate" destination="jOY-CI-tHy" id="tVc-wd-GbJ"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Places" id="dH9-fM-GY7"/>
+                    <navigationItem key="navigationItem" title="Places" id="dH9-fM-GY7">
+                        <barButtonItem key="leftBarButtonItem" title="Refresh" id="Ya6-Xy-il3">
+                            <connections>
+                                <action selector="refresh:" destination="jOY-CI-tHy" id="9dy-W8-bBh"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Map" id="cui-2Q-YkA">
+                            <connections>
+                                <segue destination="YyC-rR-HTI" kind="push" id="7KS-3i-dtk"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="blackTranslucent"/>
                 </tableViewController>
             </objects>
@@ -188,7 +199,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9z1-8K-UCY" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tableViewController clearsSelectionOnViewWillAppear="NO" id="zPU-Gd-Xlr" customClass="RecentlyViewedPhotosViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="Kub-eB-rLF">
-                        <rect key="frame" x="0.0" y="64" width="320" height="739"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="744"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
@@ -207,8 +218,16 @@
                             <outlet property="delegate" destination="zPU-Gd-Xlr" id="HaA-fY-JEi"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Favorites" id="MAN-tf-9ho"/>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="Favorites" id="MAN-tf-9ho">
+                        <barButtonItem key="leftBarButtonItem" title="Map" id="Ryq-7L-gy9">
+                            <connections>
+                                <segue destination="YyC-rR-HTI" kind="push" id="cCY-DQ-Ork"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="blackTranslucent"/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                 </tableViewController>
             </objects>
             <point key="canvasLocation" x="2480" y="389"/>
@@ -321,6 +340,9 @@
         </class>
         <class className="PopularPlacesTableViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/PopularPlacesTableViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="refresh:" candidateClass="UIBarButtonItem"/>
+            </relationships>
         </class>
         <class className="RecentlyViewedPhotosViewController" superclassName="PhotosListViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/RecentlyViewedPhotosViewController.h"/>
@@ -334,4 +356,7 @@
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
+    <inferredMetricsTieBreakers>
+        <segue reference="R9k-Oq-Yxx"/>
+    </inferredMetricsTieBreakers>
 </document>
