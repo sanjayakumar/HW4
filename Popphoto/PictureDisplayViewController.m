@@ -10,13 +10,15 @@
 #import "SplitViewBarButtonItemPresenter.h"
 
 @interface PictureDisplayViewController () <UIScrollViewDelegate, SplitViewBarButtonItemPresenter>
-@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
-@property (weak, nonatomic) IBOutlet UIImageView *imageView;
+
 @property (weak, nonatomic) IBOutlet UIToolbar *toolbar;
 @property (weak, nonatomic) IBOutlet UILabel *toolbarTitle;
+@property (nonatomic, strong)UIImage *actualImage;
+@property (nonatomic, strong)NSString *imageTitle;
 @end
 
 @implementation PictureDisplayViewController
+@synthesize fetchActivityIndicator = _fetchActivityIndicator;
 @synthesize scrollView = _scrollView;
 @synthesize imageView = _imageView;
 @synthesize toolbar = _toolbar;
@@ -73,12 +75,11 @@
     
 }
 
-- (void) setActualImage:(UIImage *)actualImage
+- (void) setImage:(UIImage *)image andTitle:(NSString *)title
 {
-    _actualImage = actualImage;
-    if (self.splitViewController){
-        [self displayImageWithZoomAndTitle];
-    }
+    self.actualImage = image;
+    self.imageTitle = title;
+    [self displayImageWithZoomAndTitle];
 }
 
 - (void) viewWillAppear:(BOOL)animated
@@ -113,6 +114,7 @@
     [self setScrollView:nil];
     [self setToolbar:nil];
     [self setToolbarTitle:nil];
+    [self setFetchActivityIndicator:nil];
     [super viewDidUnload];
 }
 

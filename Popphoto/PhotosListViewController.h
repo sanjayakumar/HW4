@@ -10,5 +10,6 @@
 
 @interface PhotosListViewController : UITableViewController
 @property (nonatomic, strong) NSMutableArray * photoList;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *listFetcherActivityIndicator;
 
 @end

@@ -107,6 +107,11 @@
                         <rect key="frame" x="0.0" y="64" width="320" height="739"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <activityIndicatorView key="tableFooterView" hidden="YES" opaque="NO" contentMode="scaleToFill" hidesWhenStopped="YES" style="whiteLarge" id="gm2-4f-yjr">
+                            <rect key="frame" x="0.0" y="66" width="320" height="37"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                            <color key="color" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        </activityIndicatorView>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Photo List Cell" textLabel="vCh-Et-pH7" detailTextLabel="eGa-N0-6Fj" style="IBUITableViewCellStyleSubtitle" id="DQa-Ai-vPb">
                                 <rect key="frame" x="0.0" y="22" width="320" height="44"/>
@@ -148,6 +153,9 @@
                         </barButtonItem>
                     </navigationItem>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="blackTranslucent"/>
+                    <connections>
+                        <outlet property="listFetcherActivityIndicator" destination="gm2-4f-yjr" id="APa-db-MHe"/>
+                    </connections>
                 </tableViewController>
             </objects>
             <point key="canvasLocation" x="2944" y="-560"/>
@@ -203,12 +211,28 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="Photo List Cell" id="Wu9-a1-8mp">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="Photo List Cell" textLabel="F9A-Jf-jBt" detailTextLabel="9fj-DB-JpW" style="IBUITableViewCellStyleSubtitle" id="Wu9-a1-8mp">
                                 <rect key="frame" x="0.0" y="22" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="300" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="F9A-Jf-jBt">
+                                            <rect key="frame" x="10" y="2" width="38" height="22"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </label>
+                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="9fj-DB-JpW">
+                                            <rect key="frame" x="10" y="24" width="47" height="18"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <color key="textColor" red="0.50196078431372548" green="0.50196078431372548" blue="0.50196078431372548" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </label>
+                                    </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
                             </tableViewCell>
@@ -290,6 +314,11 @@
                                 <rect key="frame" x="0.0" y="44" width="768" height="960"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
+                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" hidesWhenStopped="YES" animating="YES" style="whiteLarge" id="4cW-kn-tdD">
+                                        <rect key="frame" x="373" y="460" width="37" height="37"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                        <color key="color" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                    </activityIndicatorView>
                                     <imageView userInteractionEnabled="NO" contentMode="TopLeft" id="Chz-2y-WZz">
                                         <rect key="frame" x="0.0" y="0.0" width="768" height="960"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -305,8 +334,9 @@
                     <navigationItem key="navigationItem" id="xWL-aV-Rmf"/>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="blackTranslucent"/>
                     <connections>
+                        <outlet property="fetchActivityIndicator" destination="4cW-kn-tdD" id="vid-yW-EhG"/>
                         <outlet property="imageView" destination="Chz-2y-WZz" id="7P8-DE-PUm"/>
-                        <outlet property="scrollView" destination="u8W-Ws-0NF" id="yg1-UI-h51"/>
+                        <outlet property="scrollView" destination="u8W-Ws-0NF" id="w2e-da-uCG"/>
                         <outlet property="toolbar" destination="9qw-88-pJf" id="KJR-9b-Bg6"/>
                         <outlet property="toolbarTitle" destination="Kg0-Om-wcs" id="78K-VQ-voj"/>
                     </connections>
@@ -328,10 +358,14 @@
         </class>
         <class className="PhotosListViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/PhotosListViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="listFetcherActivityIndicator" candidateClass="UIActivityIndicatorView"/>
+            </relationships>
         </class>
         <class className="PictureDisplayViewController" superclassName="RotatableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/PictureDisplayViewController.h"/>
             <relationships>
+                <relationship kind="outlet" name="fetchActivityIndicator" candidateClass="UIActivityIndicatorView"/>
                 <relationship kind="outlet" name="imageView" candidateClass="UIImageView"/>
                 <relationship kind="outlet" name="scrollView" candidateClass="UIScrollView"/>
                 <relationship kind="outlet" name="toolbar" candidateClass="UIToolbar"/>
@@ -341,7 +375,7 @@
         <class className="PopularPlacesTableViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/PopularPlacesTableViewController.h"/>
             <relationships>
-                <relationship kind="action" name="refresh:" candidateClass="UIBarButtonItem"/>
+                <relationship kind="action" name="refresh:"/>
             </relationships>
         </class>
         <class className="RecentlyViewedPhotosViewController" superclassName="PhotosListViewController">

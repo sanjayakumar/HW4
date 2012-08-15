@@ -22,6 +22,7 @@
     NSDictionary *results = jsonData ? [NSJSONSerialization JSONObjectWithData:jsonData options:0 error:&error] : nil;
     if (error) NSLog(@"[%@ %@] JSON error: %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd), error.localizedDescription);
     // NSLog(@"[%@ %@] received %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd), results);
+    [NSThread sleepUntilDate:[NSDate dateWithTimeIntervalSinceNow:2]]; // For DEBUGGING only
     return results;
 }
 

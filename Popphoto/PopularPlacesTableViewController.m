@@ -20,20 +20,23 @@
 #define MAX_PHOTOS_FROM_PLACE 50 // set by Assignment 4 instructions
 
 @implementation PopularPlacesTableViewController
-- (IBAction)refresh:(UIBarButtonItem *)sender {
+
+- (IBAction)refresh:(id)sender
 {
+    {
         // might want to use introspection to be sure sender is UIBarButtonItem
         // (if not, it can skip the spinner)
         // that way this method can be a little more generic
-        UIActivityIndicatorView *spinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
-        [spinner startAnimating];
-        self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:spinner];
-        
+        if ([sender isKindOfClass:[UIBarButtonItem class]]){
+            UIActivityIndicatorView *spinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+            [spinner startAnimating];
+            self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:spinner];
+        }
         dispatch_queue_t downloadQueue = dispatch_queue_create("flickr downloader", NULL);
         dispatch_async(downloadQueue, ^{
             NSArray *topPlaces = [FlickrFetcher topPlaces];
             dispatch_async(dispatch_get_main_queue(), ^{
-                self.navigationItem.leftBarButtonItem = sender;
+                if ([sender isKindOfClass:[UIBarButtonItem class]]) self.navigationItem.leftBarButtonItem = sender;
                 self.topPlaces = topPlaces;
             });
         });
@@ -136,7 +139,7 @@
     NSMutableArray *annotations = [[NSMutableArray alloc]init];
     NSDictionary * topPlace;
     
-    for (topPlace in [FlickrFetcher topPlaces]){
+    for (topPlace in self.topPlaces){
         [annotations addObject:[FlickrPlaceAnnotation annotationForPlace:topPlace]];
     }
     return annotations;
@@ -149,7 +152,6 @@
         MapViewController *mapVC = segue.destinationViewController;
         mapVC.annotations = [self mapAnnotations];
         mapVC.delegate = self;
-        NSLog(@"Map button pressed");
         return;
     }
     
@@ -167,8 +169,24 @@
         topPlace = [[self.countryList objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
     }
     
-    NSArray *PhotoList = [FlickrFetcher photosInPlace:topPlace maxResults:MAX_PHOTOS_FROM_PLACE];
-    [segue.destinationViewController setPhotoList:[PhotoList mutableCopy]];
+    PhotosListViewController * destVC = segue.destinationViewController;
+    
+    [destVC.tableView bringSubviewToFront:destVC.listFetcherActivityIndicator];
+    [destVC.listFetcherActivityIndicator startAnimating];
+    
+    dispatch_queue_t downloadQueue = dispatch_queue_create("flickr downloader", NULL);
+    dispatch_async(downloadQueue, ^{
+        NSArray *photoList = [FlickrFetcher photosInPlace:topPlace maxResults:MAX_PHOTOS_FROM_PLACE];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [destVC.listFetcherActivityIndicator stopAnimating];
+            [destVC setPhotoList:[photoList mutableCopy]];
+        });
+    });
+}
+
+- (void)viewDidLoad
+{
+    [self refresh:nil];
 }
 
 #pragma mark - MapViewControllerDelegate
