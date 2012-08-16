@@ -107,6 +107,19 @@
     NSLog(@"callout accessory tapped for annotation %@", [view.annotation title]);
     [self.delegate annotationCallOutAction:view.annotation];
 }
+- (IBAction)mapTypeSelect:(UISegmentedControl *)sender {
+    switch (sender.selectedSegmentIndex){
+        case 0:
+            self.mapView.mapType = MKMapTypeStandard;
+            break;
+        case 1:
+            self.mapView.mapType = MKMapTypeSatellite;
+            break;
+        case 2:
+            self.mapView.mapType = MKMapTypeHybrid;
+            break;
+    }
+}
 
 #pragma mark - View Controller Lifecycle
 

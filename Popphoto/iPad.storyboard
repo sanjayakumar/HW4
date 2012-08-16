@@ -173,6 +173,18 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="739"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </mapView>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" segmentControlStyle="bar" selectedSegmentIndex="0" id="lhL-0Y-3Fu">
+                                <rect key="frame" x="56" y="690" width="207" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <segments>
+                                    <segment title="Standard"/>
+                                    <segment title="Satellite"/>
+                                    <segment title="Hybrid"/>
+                                </segments>
+                                <connections>
+                                    <action selector="mapTypeSelect:" destination="YyC-rR-HTI" eventType="valueChanged" id="Qkp-EM-QcF"/>
+                                </connections>
+                            </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -315,7 +327,7 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
                                     <activityIndicatorView opaque="NO" contentMode="scaleToFill" hidesWhenStopped="YES" animating="YES" style="whiteLarge" id="4cW-kn-tdD">
-                                        <rect key="frame" x="373" y="460" width="37" height="37"/>
+                                        <rect key="frame" x="365" y="462" width="37" height="37"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                         <color key="color" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                     </activityIndicatorView>
@@ -353,6 +365,7 @@
         <class className="MapViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/MapViewController.h"/>
             <relationships>
+                <relationship kind="action" name="mapTypeSelect:" candidateClass="UISegmentedControl"/>
                 <relationship kind="outlet" name="mapView" candidateClass="MKMapView"/>
             </relationships>
         </class>
@@ -391,6 +404,6 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="R9k-Oq-Yxx"/>
+        <segue reference="7KS-3i-dtk"/>
     </inferredMetricsTieBreakers>
 </document>
